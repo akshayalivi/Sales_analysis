@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Analysis Results</title>
+    <link rel="stylesheet" href="/static/style_result.css">
+</head>
+<body>
+    <h1>Sales Analysis Results for {{ selected_month }}</h1>
+    <h2>Analysis Statistics:</h2>
+    <div class="boxes">
+        <ul>
+            <li class="top">Total Sales for Each Product:</li>
+            {% for product, sales in analysis_results.product_sales.items() %}
+                <li>{{ product }}: ${{ sales }}</li>
+            {% endfor %}
+        </ul>
+        <ul>
+            <li class="top">Total Quantity Sold for Each Product:</li>
+            {% for product, quantity in analysis_results.top_10_products.items() %}
+                <li>{{ product }}: {{ quantity }} units</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <p>Most Sold Product: {{ analysis_results.most_sold_product }} ({{ analysis_results.most_sold_quantity }} units)</p>
+    <p>Product with the Highest Revenue: {{ analysis_results.highest_revenue_product }} (Total Revenue: ${{ analysis_results.highest_revenue }})</p>
+    <p>Product with the Highest Average Price: {{ analysis_results.highest_avg_price_product }} (Average Price: ${{ analysis_results.highest_avg_price }})</p>
+    <h2>Top 10 Sold Products:</h2>
+    <img src="data:image/png;base64,{{ analysis_results.top_10_products_image }}" alt="Top 10 Sold Products">
+    <h2>Total Sales for Each Product:</h2>
+    <img src="data:image/png;base64,{{ analysis_results.product_sales_image }}" alt="Total Sales for Each Product">
+</body>
+</html>

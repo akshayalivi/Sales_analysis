@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Analysis</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <form action="/analyze" method="post" enctype="multipart/form-data">
+        <label for="month">Select Month:</label>
+        <select id="month" name="month">
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+            <!-- Add other month options here -->
+        </select>
+        <br><br>
+        <label for="csv_file">Upload CSV file:</label>
+        <input type="file" id="csv_file" name="csv_file" accept=".csv">
+        <br><br>
+        <input type="submit" value="Analyze">
+    </form>
+</body>
+</html>
